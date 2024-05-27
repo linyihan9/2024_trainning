@@ -27,4 +27,7 @@ git push （远程仓库名） （分支名）
 ![](https://github.com/linyihan9/2024_trainning/blob/main/img/gitLongBranch.jpg)   
 ####  特性分支
 
+##  Git回退
+###  reset和rebase区别
+
 
