@@ -20,7 +20,11 @@ git commit -a -m xxx
 git merge  
 git checkout  选择分支  
 git branch -d 删除分支
+git push （远程仓库名） （分支名）   
 
 ###  实际应用
 ####  长期分支
-在master分支中保留完全稳定的代码，与此同时，设置一个develop的平行分支，专门用于后续开发，一旦稳定，就可以合并到master中
+在master分支中保留完全稳定的代码，与此同时，设置一个develop的平行分支，专门用于后续开发，一旦稳定，就可以合并到master中   
+![](https://github.com/linyihan9/2024_trainning/blob/main/img/gitLongBranch.jpg)   
+####  特性分支
+
