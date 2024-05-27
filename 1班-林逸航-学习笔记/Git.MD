@@ -29,5 +29,15 @@ git push （远程仓库名） （分支名）
 
 ##  Git回退
 ###  reset和rebase区别
+reset:
+版本1->版本2->版本3
+回退后：
+版本1->版本2
+
+rebase：
+版本1->版本2->版本3
+发现版本2有问题，但是版本3想保留，就用rebase，保留了版本3，舍弃版本2
+版本1->版本2->版本3->版本4
+![](https://github.com/linyihan9/2024_trainning/blob/main/img/gitMergeAndRebase.jpg)
 
 
