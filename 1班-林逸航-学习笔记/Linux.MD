@@ -50,10 +50,26 @@ top  查看系统cpu、内存、运行时间、交换分区、执行的线程等
 **第四行, Mem内存状态**  
 
 **第五行，swap交换分区信息，具体信息说明如下：**  
-> 0k total — 交换区总量（0K）
-> 0k used — 使用的交换区总量（0K）
-> 0k free — 空闲交换区总量（0K）
-> 401672k cached — 缓冲的交换区总量（383M）  
+> 0k total — 交换区总量（0K）  
+> 0k used — 使用的交换区总量（0K）  
+> 0k free — 空闲交换区总量（0K）  
+> 401672k cached — 缓冲的交换区总量（383M）   
+
+**第六行，空行。**
+
+**第七行以下：各进程（任务）的状态监控，列信息说明如下：**
+> PID — 进程id  
+> USER — 进程所有者  
+> PR — 进程优先级  
+> NI — nice值。负值表示高优先级，正值表示低优先级  
+> VIRT — 进程使用的虚拟内存总量，单位kb。VIRT=SWAP+RES  
+> RES — 进程使用的、未被换出的物理内存大小，单位kb。RES=CODE+DATA  
+> SHR — 共享内存大小，单位kb  
+> S — 进程状态。D=不可中断的睡眠状态 R=运行 S=睡眠 T=跟踪/停止 Z=僵尸进程  I=空闲    
+> %CPU — 上次更新到现在的CPU时间占用百分比  
+> %MEM — 进程使用的物理内存百分比  
+> TIME+ — 进程占用的CPU时间总计，单位1/100秒  
+> COMMAND — 进程名称（命令名/命令行）  
 ![](https://github.com/linyihan9/2024_trainning/blob/main/img/Linux/topDetail.jpg)  
 
 
