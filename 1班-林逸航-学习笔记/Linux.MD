@@ -25,7 +25,8 @@ ps -aux  |||||  ps -ef  查看系统进程
 kill (-9强制) pid  杀死进程  
 date  
 echo $LANG  查看当前语言环境  
-###  top详解
-top  查看系统cpu、内存、运行时间、交换分区、执行的线程等信息
+###  top详解  
+top  查看系统cpu、内存、运行时间、交换分区、执行的线程等信息  
+![](https://github.com/linyihan9/2024_trainning/edit/main/img/Linux/top.jpg)  
 
 
