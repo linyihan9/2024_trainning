@@ -50,6 +50,6 @@ st (steal time)：被虚拟机管理程序偷走的时间。
 0k used — 使用的交换区总量（0K）
 0k free — 空闲交换区总量（0K）
 401672k cached — 缓冲的交换区总量（383M）
-![](https://github.com/linyihan9/2024_trainning/blob/main/img/Linux/top.jpg)  
+![](https://github.com/linyihan9/2024_trainning/blob/main/img/Linux/topDetail.jpg)  
 
 
