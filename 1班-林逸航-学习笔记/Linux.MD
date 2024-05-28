@@ -72,6 +72,8 @@ top  查看系统cpu、内存、运行时间、交换分区、执行的线程等
 > COMMAND — 进程名称（命令名/命令行）  
 ![](https://github.com/linyihan9/2024_trainning/blob/main/img/Linux/topDetail.jpg)  
 
+**top部分交互命令**
+
 ###  Swap  
 Swap叫内存置换空间（swap space），是磁盘上的一块区域。作用是，当系统物理内存吃紧时，Linux 会将内存中不常访问的数据保存到 swap 上，这样系统就有更多的物理内存为各个进程服务，而当系统需要访问 swap 上存储的内容时，再将 swap 上的数据加载到内存中，也就是常说的 swap out 和 swap in。  
 
