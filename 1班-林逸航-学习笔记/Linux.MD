@@ -27,6 +27,6 @@ date
 echo $LANG  查看当前语言环境  
 ###  top详解  
 top  查看系统cpu、内存、运行时间、交换分区、执行的线程等信息  
-![](https://github.com/linyihan9/2024_trainning/edit/main/img/Linux/top.jpg)  
+![](https://github.com/linyihan9/2024_trainning/blob/main/img/Linux/top.jpg)  
 
 
