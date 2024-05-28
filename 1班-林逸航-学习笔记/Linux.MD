@@ -113,5 +113,5 @@ tail -100f catalina.out实时查看日志文件末尾一百行
 tail -f -n 100 catalina.out 实时查看日志末尾100行  
 
 ##  网络通讯  
-
+netstat -ntlp  
 
