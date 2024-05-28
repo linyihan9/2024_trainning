@@ -25,6 +25,8 @@ ps -aux  |||||  ps -ef  查看系统进程
 kill (-9强制) pid  杀死进程  
 date  
 echo $LANG  查看当前语言环境  
+free (-m MB -h GB)显示内存使用情况  
+
 ###  top详解  
 top  查看系统cpu、内存、运行时间、交换分区、执行的线程等信息  
 **第一行是任务队列信息，跟 uptime 命令的执行结果类同，具体参数说明如下：**  
@@ -81,5 +83,35 @@ Swap叫内存置换空间（swap space），是磁盘上的一块区域。作用
 缺点：CPU所读取的数据都来自于内存，交换分区则是存放在磁盘上的，磁盘的速度和内存比较起来慢了好几个数量级，如果不停的读写 swap，那么对系统的性能肯定有影响，尤其是当系统内存很吃紧的时候，读写 swap 空间发生的频率会很高，导致系统运行很慢。  
 
 如果使用是桌面系统，由于系统会自动将不常用的内存数据移到 swap 上，对桌面程序来说，有可能会导致最小化一个程序后，再打开时小卡一下，因为需要将 swap 上的数据重新加载到内存中来。在部署了数据库的系统上，也不建议用交换分区，因为频繁地在内存和磁盘上相互导数据会影响数据库性能。
+
+
+##权限设置  
+文件的权限只有3种：r，读权限；w，写权限；x，执行权限。权限的值可以用数字表示分别为，r：4，w：2，x：1  
+r–read 表示读权限，对应的值为4  
+w–write 表示写权限，对应的值为2  
+x–execute 表示可执行权限，对应的值为1  
+rwx=7表示拥有所有的读、写、可执行权限  
+常见644、755、777三种权限  
+chmod 777 xxx  
+
+##文档处理  
+grep 对文档进行匹配  ps -ef|grep xxx  
+sort 排序  
+uniq  去除重复行  
+wc 依次输出 行数、单词数、字符数  
+日志打印输出、日志内容查找  
+grep -A 100 'Exception' catalina.out 匹配关键词的后面100行 after  
+grep -B 100 'Exception' catalina.out 匹配关键词的前面100行 befer  
+grep -C 100 'Exception' catalina.out 匹配关键词的上下100行 center  
+或者  
+cat catalina.out | grep -C 100 'Exception'  
+cat catalina.out | grep -A 100 'Exception'  
+cat catalina.out | grep -B 100 'Exception'  
+
+tail -f catalina.out实时查看日志文件  
+tail -100f catalina.out实时查看日志文件末尾一百行  
+tail -f -n 100 catalina.out 实时查看日志末尾100行  
+
+##网络通讯  
 
 
