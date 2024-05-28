@@ -17,5 +17,15 @@ more file  逐屏输出
 less file  逐屏输出  
 head file  显示头十行
 tail file  后十行  
+cp (源文件)  (目标文件)  复制 
+find (目标文件)  当前目录下查找  
+which (目标文件)  在PATH下查找  t-b）、man说明文件（参数-m）和源代码文件（参数-s），如果省略参数，则返回所有信息  
+##  系统设置  
+ps -aux  |||||  ps -ef  查看系统进程  
+kill (-9强制) pid  杀死进程  
+date  
+echo $LANG  查看当前语言环境  
+###  top详解
+top  查看系统cpu、内存、运行时间、交换分区、执行的线程等信息
 
 
