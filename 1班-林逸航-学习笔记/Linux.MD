@@ -28,28 +28,28 @@ echo $LANG  查看当前语言环境
 ###  top详解  
 top  查看系统cpu、内存、运行时间、交换分区、执行的线程等信息  
 **第一行是任务队列信息，跟 uptime 命令的执行结果类同，具体参数说明如下：**  
-19:40:19 — 指当前系统时间  
-up 35 days, 20:32 — 表示系统已经运行了35天20小时32分钟（是指在这期间系统没有重新启动过，持续运行）  
-1 users — 当前有1个用户登录系统  
-load average: 0.00, 0.00, 0.00 — load average后面的三个数分别是1分钟、5分钟、15分钟的负载情况。  
-load average数据是每隔5秒钟检查一次活跃的进程数，然后按特定算法计算出的数值。如果这个数除以逻辑CPU的数量，结果高于5的时候就表明系统在超负荷运转了。  
+> 19:40:19 — 指当前系统时间  
+> up 35 days, 20:32 — 表示系统已经运行了35天20小时32分钟（是指在这期间系统没有重新启动过，持续运行）  
+> 1 users — 当前有1个用户登录系统  
+> load average: 0.00, 0.00, 0.00 — load average后面的三个数分别是1分钟、5分钟、15分钟的负载情况。  
+> load average数据是每隔5秒钟检查一次活跃的进程数，然后按特定算法计算出的数值。如果这个数除以逻辑CPU的数量，结果高于5的时候就表明系统在超负荷运转了。  
 **第二行，Tasks — 任务（进程），具体信息说明如下：**  
-系统现在共有81个进程，其中处于运行中的有1个，80个在休眠，stoped状态的有0个，zombie状态（僵尸）的有0个。  
+> 系统现在共有81个进程，其中处于运行中的有1个，80个在休眠，stoped状态的有0个，zombie状态（僵尸）的有0个。  
 **第三行，cpu状态信息，具体属性说明如下：**  
-us (user time)：用户空间程序的 CPU 使用率。  
-sy (system time)：内核空间的 CPU 使用率。  
-ni (nice time)：带有 nice 值的用户进程的 CPU 使用率。  
-id (idle time)：空闲时间，CPU 没有任务处理时的百分比。  
-wa (I/O wait time)：等待 I/O 操作完成的时间。  
-hi (hardware interrupt time)：硬件中断处理时间。  
-si (software interrupt time)：软件中断处理时间。  
-st (steal time)：被虚拟机管理程序偷走的时间。  
+> us (user time)：用户空间程序的 CPU 使用率。  
+> sy (system time)：内核空间的 CPU 使用率。  
+> ni (nice time)：带有 nice 值的用户进程的 CPU 使用率。  
+> id (idle time)：空闲时间，CPU 没有任务处理时的百分比。  
+> wa (I/O wait time)：等待 I/O 操作完成的时间。  
+> hi (hardware interrupt time)：硬件中断处理时间。  
+> si (software interrupt time)：软件中断处理时间。  
+> st (steal time)：被虚拟机管理程序偷走的时间。  
 **第四行, Mem内存状态**  
 **第五行，swap交换分区信息，具体信息说明如下：**  
-0k total — 交换区总量（0K）
-0k used — 使用的交换区总量（0K）
-0k free — 空闲交换区总量（0K）
-401672k cached — 缓冲的交换区总量（383M）
+> 0k total — 交换区总量（0K）
+> 0k used — 使用的交换区总量（0K）
+> 0k free — 空闲交换区总量（0K）
+> 401672k cached — 缓冲的交换区总量（383M）  
 ![](https://github.com/linyihan9/2024_trainning/blob/main/img/Linux/topDetail.jpg)  
 
 
