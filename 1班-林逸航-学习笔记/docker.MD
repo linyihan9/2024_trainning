@@ -19,3 +19,17 @@ docker ps
 docker ps -a   
 docker exec -it  进入容器内部  
 
+##  docker-compose  
+https://docs.docker.com/reference/cli/docker/compose/config/
+Docker Compose 就是为了**简化多容器配置和管理工作**而生的，可以简化大量重复的手动工作，具有以下主要特点：  
+> 提供工具用于定义和运行多个docker容器应用  
+> 使用yaml文件来配置应用服务( docker-compse.yml )  
+> 可以通过一个简单的命令 docker-compse up 可以按照依赖关系启动所有服务  
+> 可以通过一个简单的命令 docker-compose down 停止所有服务  
+> 当一个服务需要的时候，可以很简单地通过 --scale 进行扩容  
+
+使用 Compose 基本上只要三步:  
+> 通过编辑 Dockerfile 定义应用程序发布所需的运行环境  
+> 通过编辑 docker-compose.yml 文件定义多个容器一起运行的环境和相互关系  
+> 运行 docker-compose up 开始你的整个应用系统  
+
