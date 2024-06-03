@@ -20,4 +20,11 @@ list.remove('value')  根据值进行删除
 list.sort()  永久排序  
 sorted(list)  临时排序  
 list.reverse()  反转  
+###  元组
+用{}表示，不能修改值，可以重新赋值
+```
+a = {b,c}
+(不行) a[0]  = d
+(可以) a = {d,e}
+```
 
