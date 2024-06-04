@@ -24,7 +24,7 @@ class Employee:
         self.salary+=add
         return self.salary
 ```
-test_emplo.py
+test_emplo.py    
 **后面两个函数的参数名称需要与@pytest.fixture标注的函数名称相同**
 ```
 import pytest
