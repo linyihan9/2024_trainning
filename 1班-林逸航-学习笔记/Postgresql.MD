@@ -1,7 +1,8 @@
 #  Postgresql
 ##  概念
 关系型数据库  
-基本sql类型：int、smallint、real、double precision、char、varchar、date、time、timestamp、interval、json、jsonb、line
+基本sql类型：int、smallint、real、double precision、char、varchar、date、time、timestamp、interval
+地理sql类型:json、jsonb、line、lseg、point、polygon
 ###  real
 浮点数类型，可以存储单精度浮点数（32位）  
 ###  double precision
@@ -22,10 +23,10 @@ WHERE json_column @> '{"name": "John Smith"}';
  John Smith  | 30  | New York
 ```
 ### line
-line 类型表示在二维平面中的一条直线，包括其方向和位置等信息 
-line可以存储空间数据，如地图上的道路、边界等 
-line可以计算几何关系，使用postgis扩展，可以对line数据类型进行各种几何计算，如计算两条线交点、计算线段长度等 
-line可以进行数据分析 
+line 类型表示在二维平面中的一条直线，包括其方向和位置等信息  
+line可以存储空间数据，如地图上的道路、边界等  
+line可以计算几何关系，使用postgis扩展，可以对line数据类型进行各种几何计算，如计算两条线交点、计算线段长度等  
+line可以进行数据分析  
 ```
 CREATE TABLE example_table (
     id SERIAL PRIMARY KEY,
@@ -45,8 +46,25 @@ FROM example_table;
  LINESTRING(1 1,2 2) | 1.4142135624
 ```
 ### lseg
-lseg 类型表示在二维平面中的一条线段，包括其起点和终点的坐标信息  
+lseg 类型表示在二维平面中的一条线段，包括其起点和终点的坐标信息    
+```
+CREATE TABLE example_table (
+    id SERIAL PRIMARY KEY,
+    lseg_column LSEG
+);
 
+INSERT INTO example_table (lseg_column)
+VALUES ('[(1, 1), (2, 2)]');
+```
+###    point
+```
+CREATE TABLE locations (
+    id SERIAL PRIMARY KEY,
+    position POINT
+);
+INSERT INTO locations (position) VALUES (point(1.0, 2.0));
+INSERT INTO locations (position) VALUES (point(3.0, 4.0));
+```
 
 
 ##  基本操作
@@ -65,4 +83,7 @@ CREATE TABLE weather (
     date            date
 );
 ```
-
+###    查询所有表
+```
+select * from pg_tables;
+```
