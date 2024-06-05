@@ -64,6 +64,36 @@ CREATE TABLE locations (
 );
 INSERT INTO locations (position) VALUES (point(1.0, 2.0));
 INSERT INTO locations (position) VALUES (point(3.0, 4.0));
+或者按照上面的其他的写法一样
+insert into locations(position) values('(1.0,2.0)');
+```
+###    polygon
+```
+CREATE TABLE areas (
+    id SERIAL PRIMARY KEY,
+    shape POLYGON
+);
+INSERT INTO areas (shape) VALUES
+    ('((0,0),(0,10),(10,10),(10,0),(0,0))'),
+    ('((5,5),(5,15),(15,15),(15,5),(5,5))');
+```
+```
+SELECT id, ST_Area(shape) AS area FROM areas;
+```
+```
+ id |   area
+----+----------
+  1 | 100.0000
+  2 | 100.0000
+```
+###    serial  
+自动递增序号
+```
+CREATE TABLE users (
+   id SERIAL PRIMARY KEY,
+   name VARCHAR(50) NOT NULL,
+   email VARCHAR(255) NOT NULL
+);
 ```
 
 
