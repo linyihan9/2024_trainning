@@ -1,0 +1,1 @@
+[{"type": "Car", "occluded_state": 0, "truncated_state": 0, "alpha": 0.338885815438449, "2d_box": {"xmin": 0, "ymin": 527.938232, "xmax": 69.723068, "ymax": 637.4556269999999}, "3d_dimensions": {"h": 0.850836, "w": 2.073565, "l": 4.337498}, "3d_location": {"x": 32.83248, "y": 9.513366, "z": -1.261215}, "rotation": -1.615145}]
