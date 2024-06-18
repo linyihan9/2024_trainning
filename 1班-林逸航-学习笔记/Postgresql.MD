@@ -122,4 +122,35 @@ select * from pg_tables;
 ##    schema    
 在SQL环境下，schema就是数据库对象的集合，所谓的数据库对象也就是常说的表，索引，视图，存储过程等。在schema之上的，就是数据库的实例，也就是通常create databases获得的东西。也就是说一个schema 实例 可以有多个schema, 可以给不同的用户创建不同的schema,并且他们都是在同一数据库实例下面。    
 PostgreSQL schema是其独有的一个强大的功能，它可以使一个单独的数据库实例中包含多个独立的、命名空间互相隔离的区域。这个功能让多个应用程序可以在同一个数据库实例中运行，而不会相互干扰。    
-schema是由一组表、视图、序列、函数、索引等对象组成的，这些对象也被称为schema中的命名空间。    
+schema是由一组表、视图、序列、函数、索引等对象组成的，这些对象也被称为schema中的命名空间。   
+###     创建schema    
+```
+create schema schema_name;
+```
+###    选择schema    
+```
+set schema_path to schema_name;
+```
+###    schema控制权限
+```
+grant privilege on schema_name to role_name;
+```
+privilege可以是select、insert、update、delete、usage等权限    
+###    创建用户    
+```
+create user user_name with password '123456';
+```
+###    查看所有schema
+```
+\dn
+```
+##    基本用法    
+和mysql差不多    
+###    Like中的%和_
+like '100%'    找出开头为100的    
+like '100_'    找出前面三位为100的四位数
+###    Limit和offset    
+select * from user limit 4 offset 2;    
+找出user表中，从第三条开始读取四条数据    
+
+
