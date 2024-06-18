@@ -16,3 +16,5 @@ url、button
 jpg存路径、存时间戳		
 点云二进制存路径、存文件大小、存时间戳		
 四条json数据直接存json数据	
+##	sql	
+![](https://github.com/linyihan9/2024_trainning/blob/main/img/DataClean.jpg)	
