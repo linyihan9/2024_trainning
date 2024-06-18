@@ -2,7 +2,8 @@
 ##  概念
 关系型数据库  
 基本sql类型：int、smallint、real、double precision、char、varchar、date、time、timestamp、interval
-地理sql类型:json、jsonb、line、lseg、point、polygon
+地理sql类型:json、jsonb、line、lseg、point、polygon      
+##     类型
 ###  real
 浮点数类型，可以存储单精度浮点数（32位）  
 ###  double precision
@@ -117,3 +118,8 @@ CREATE TABLE weather (
 ```
 select * from pg_tables;
 ```
+
+##    schema    
+在SQL环境下，schema就是数据库对象的集合，所谓的数据库对象也就是常说的表，索引，视图，存储过程等。在schema之上的，就是数据库的实例，也就是通常create databases获得的东西。也就是说一个schema 实例 可以有多个schema, 可以给不同的用户创建不同的schema,并且他们都是在同一数据库实例下面。    
+PostgreSQL schema是其独有的一个强大的功能，它可以使一个单独的数据库实例中包含多个独立的、命名空间互相隔离的区域。这个功能让多个应用程序可以在同一个数据库实例中运行，而不会相互干扰。    
+schema是由一组表、视图、序列、函数、索引等对象组成的，这些对象也被称为schema中的命名空间。    
