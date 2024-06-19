@@ -181,7 +181,7 @@ CREATE TABLE COMPANY3(
 ```
 即不能有两条相同的名称数据    
 ###    primary key    
-###    foreign key
+###    foreign key 
 FOREIGN KEY 即外键约束，指定列(或一组列)中的值必须匹配另一个表的某一行中出现的值。    
 通常一个表中的 FOREIGN KEY 指向另一个表中的 UNIQUE KEY(唯一约束的键)，即维护了两个相关表之间的引用完整性。    
 ```
