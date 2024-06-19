@@ -150,7 +150,72 @@ create user user_name with password '123456';
 like '100%'    找出开头为100的    
 like '100_'    找出前面三位为100的四位数
 ###    Limit和offset    
-select * from user limit 4 offset 2;    
-找出user表中，从第三条开始读取四条数据    
+###    Having    
+where子句在所选列上设置条件，而having子句则在由group子句创建的分组上设置条件
+```
+select * from user group by name having count(name)>2;
+```
+###    Distinct    
+DISTINCT 关键字与 SELECT 语句一起使用，用于去除重复记录，只获取唯一的记录
+```
+select distinct name from user;
+```
+select * from user limit 4 offset 2;        
+找出user表中，从第三条开始读取四条数据     
+###    删除表数据，不删除表结构    
+```
+truncate table table_name;
+```
+
+##    约束
+###    not null
+###    unique
+```
+CREATE TABLE COMPANY3(
+   ID INT PRIMARY KEY     NOT NULL,
+   NAME           TEXT    NOT NULL UNIQUE,
+   AGE            INT     NOT NULL,
+   ADDRESS        CHAR(50),
+   SALARY         REAL    DEFAULT 50000.00
+);
+```
+即不能有两条相同的名称数据    
+###    primary key    
+###    foreign key
+FOREIGN KEY 即外键约束，指定列(或一组列)中的值必须匹配另一个表的某一行中出现的值。    
+通常一个表中的 FOREIGN KEY 指向另一个表中的 UNIQUE KEY(唯一约束的键)，即维护了两个相关表之间的引用完整性。    
+```
+CREATE TABLE COMPANY6(
+   ID INT PRIMARY KEY     NOT NULL,
+   NAME           TEXT    NOT NULL,
+   AGE            INT     NOT NULL,
+   ADDRESS        CHAR(50),
+   SALARY         REAL
+);
+CREATE TABLE DEPARTMENT1(
+   ID INT PRIMARY KEY      NOT NULL,
+   DEPT           CHAR(50) NOT NULL,
+   EMP_ID         INT      references COMPANY6(ID)
+);
+```
+###    check
+```
+CREATE TABLE COMPANY5(
+   ID INT PRIMARY KEY     NOT NULL,
+   NAME           TEXT    NOT NULL,
+   AGE            INT     NOT NULL,
+   ADDRESS        CHAR(50),
+   SALARY         REAL    CHECK(SALARY > 0)
+);
+```
+###    删除约束    
+```
+alter table table_name drop constraint some_name;
+```
+##    事务    
+begin;     开启事务    
+commit;    提交    
+rollback;    回退    
+##    倒排索引    
 
 
