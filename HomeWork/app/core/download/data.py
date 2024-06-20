@@ -49,6 +49,7 @@ def rangeDownload(save_name, s_pos, e_pos,url):
     headers = {"Range": f"bytes={s_pos}-{e_pos}"}
     res = requests.get(url, headers=headers, stream=True)
     with open(save_name, "rb+") as f:
+        #移动到指定字节位置进行写入
         f.seek(s_pos)
         for chunk in res.iter_content(chunk_size=64*1024):
             if chunk:

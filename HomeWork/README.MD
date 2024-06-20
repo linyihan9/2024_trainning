@@ -2,7 +2,18 @@
 1.数据下载		
 2.数据清洗			
 3.数据存储			
-4.数据应用			
+4.数据应用		
+```mermaid
+graph TD;
+下载数据-->解压数据;
+解压数据-->解析数据;
+解析数据-->分析data_info.json;
+解析数据-->根据data_info.json寻找相应data;
+解析数据-->插入数据至数据库;	
+分析data_info.json-->根据data_info.json寻找相应data;
+根据data_info.json寻找相应data-->插入数据至数据库;	
+插入数据至数据库-->查询相应数据;
+```
 ##	数据下载	
 url、button	
 下载路径		
