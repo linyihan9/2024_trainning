@@ -11,26 +11,26 @@ graph TD;
 ```
 ##	数据库设计	
 主表	
-| Command | Description | 	
 | 列名 | 数据类型 | 约束 | 描述 |	
-| data_package_id | int | auto_increment primary key | 数据包ID，称例如single-vehicle-side-example为一个数据包 |	
-| data_package_name | varchar(50) | not null | 数据包名称 |	
+| --- | --- | --- | --- |	
+| data_package_id | int | auto_increment primary key | 数据包ID，称例如single-vehicle-side-example为一个数据包 |		
+| data_package_name | varchar(50) | not null | 数据包名称 |		
 | data_package_hash | varchar(64) | not null | 数据包哈希，采用sha64进行哈希，以便于判断数据包是否重复 |		
 | data_package_type | int | not null | 数据包类型，例如该数据包为车端3D数据 |	
 	
-vehicle_end_3D_inspection表
-|列名|数据类型|约束|描述|
-|id|int|auto_increment primary key|数据ID|
-|data_package_id|int|not null|对应数据包ID|
-|image_path_router|varchar(100)||图像文件路径，可以通过http下载的|
-|image_path_timestamp|timestamp||图像文件获取时间|
-|pointcloud_router|varchar(100)||点云文件路径|
-|pointcloud_timestamp|timestamp||点云文件获取时间|
-|pointcloud_size|int unsigned||点云文件大小|
-|calib_camera_intrinsic_path|json||相机内参文件的JSON内容|
-|calib_lidar_to_camera_path|json||激光雷达到相机的校准文件的JSON内容|
-|label_camera_std_path|json||相机标准标签文件的JSON内容|
-|label_lidar_std_path|json||激光雷达标准标签文件的JSON内容|
+vehicle_end_3D_inspection表		
+|列名|数据类型|约束|描述|	
+|id|int|auto_increment primary key|数据ID|		
+|data_package_id|int|not null|对应数据包ID|		
+|image_path_router|varchar(100)||图像文件路径，可以通过http下载的|	
+|image_path_timestamp|timestamp||图像文件获取时间|	
+|pointcloud_router|varchar(100)||点云文件路径|	
+|pointcloud_timestamp|timestamp||点云文件获取时间|		
+|pointcloud_size|int unsigned||点云文件大小|	
+|calib_camera_intrinsic_path|json||相机内参文件的JSON内容|		
+|calib_lidar_to_camera_path|json||激光雷达到相机的校准文件的JSON内容|		
+|label_camera_std_path|json||相机标准标签文件的JSON内容|		
+|label_lidar_std_path|json||激光雷达标准标签文件的JSON内容|		
 
 ![](https://github.com/linyihan9/2024_trainning/blob/main/img/DataClean.jpg)	
 ##	代码结构	
