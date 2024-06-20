@@ -12,7 +12,7 @@ graph TD;
 ##	数据库设计	
 主表	
 | 列名 | 数据类型 | 约束 | 描述 |	
-| --- | --- | --- | --- |	
+| :---: | :---: | :---: | :---: |	
 | data_package_id | int | auto_increment primary key | 数据包ID，称例如single-vehicle-side-example为一个数据包 |		
 | data_package_name | varchar(50) | not null | 数据包名称 |		
 | data_package_hash | varchar(64) | not null | 数据包哈希，采用sha64进行哈希，以便于判断数据包是否重复 |		
@@ -20,6 +20,7 @@ graph TD;
 	
 vehicle_end_3D_inspection表		
 |列名|数据类型|约束|描述|	
+| :---: | :---: | :---: | :---: |
 |id|int|auto_increment primary key|数据ID|		
 |data_package_id|int|not null|对应数据包ID|		
 |image_path_router|varchar(100)||图像文件路径，可以通过http下载的|	
