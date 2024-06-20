@@ -82,5 +82,85 @@ APP
 ##	下载、解压数据		
 ```mermaid
 graph TD;
-接口(api.downloadApi.py)-->核心层(core.download.data.py)
+接口api.downloadApi.py-->核心层core.download.data.py
+```
+**方法**
+```
+@downloadRouter.get('/multiThreadDownloadZipAPI')
+def multiThreadDownloadZipAPI(downloadDataModel:DownloadDataModel):
+多线程下载Zip的API
+```
+```
+@downloadRouter.get('/unzipAPI')
+def unzipAPI(zipFile,path):
+解压Zip的API
+```
+```
+def multiThreadDownloadZip(downloadDataModel:DownloadDataModel):
+多线程下载核心层：主要逻辑即判断输入是否合法、计算分片大小、分片下载
+```
+```
+def calDivisionalRange(filesize, chuck=10):
+计算分片大小：通过headers中的Content-Length获取总长度，根据分片数量进行分片，并保存至数组
+```
+```
+def rangeDownload(save_name, s_pos, e_pos,url):
+分片下载：根据计算获得的数组将其标注至headers中的Range，进行分片下载
+```
+```
+def isValidDownloadDataModel(downloadDataModel:DownloadDataModel):
+判断输入的downloadDataModel是否规范，包括路径是否合法等
+```
+```
+def unzip(zipFile,path):
+解压
+```
+##	解析数据	
+```mermaid
+graph TD;
+接口api.downloadApi.py-->核心层core.download.data.py
+```	
+```
+@analysisRouter.get('/analysisDataInfoAPI')
+def analysisDataInfoAPI(path,dataType):
+解析数据API
+```
+```
+def analysisDataInfo(path,dataType):
+针对不同数据进行分别操作
+```
+```
+def analysisEach(path,data):
+解析data_info.json数据，并添加至数据库
+```
+```
+def calculateSha256Hash(input_string: str) -> str:
+使用sha256计算Hash值
+```
+```
+def getJSON(path):
+根据路径获取Json内容
+```
+```
+def convertMicrosecondsToDatetime(microsecondsTimestamp: int) -> datetime:
+微秒时间戳转为timestamp
+```
+##	搜索数据
+```
+@searchRouter.get('/searchDataPackageAPI')
+def searchDataPackageAPI():
+搜索返回所有数据包的API
+```
+```
+@searchRouter.get('/searchByImagePathAPI')
+def searchByImagePathAPI(dataType:int,imagePathRouter):
+根据数据类型和image文件名查询的API
+```
+```
+def searchDataPackage():
+搜索返回所有数据包
+```
+```
+def searchByImagePath(dataType,imagePathRouter):
+根据数据类型和image文件名查询
 ```
