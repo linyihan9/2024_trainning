@@ -11,6 +11,7 @@ graph TD;
 ```
 ##	数据库设计	
 主表
+| Command | Description | 
 | 列名 | 数据类型 | 约束 | 描述 |
 | data_package_id | int | auto_increment primary key | 数据包ID，称例如single-vehicle-side-example为一个数据包 |
 | data_package_name | varchar(50) | not null | 数据包名称 |
