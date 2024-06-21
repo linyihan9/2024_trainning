@@ -1,5 +1,5 @@
 from fastapi import APIRouter,Depends
-from core.analysis.analysis import analysisDataInfo
+from core.analysis.analysis import analysisDataInfo,analysisDataDiffTable
 from utils.response.responseEnum import ResponseStatus
 from utils.response.responseUtil import create_response
 from datetime import datetime
@@ -12,6 +12,16 @@ analysisRouter = APIRouter(prefix='/analysis')
 def analysisDataInfoAPI(path,dataType):
     start_time = datetime.now()
     res = analysisDataInfo(path,dataType)
+    end_time = datetime.now()
+    if(res == ResponseStatus.SUCCESS):
+        return create_response(res.getCode(),res.getMessage(),"解析完成，花费时间："+str(end_time-start_time))
+    else:
+        return create_response(res.getCode(),res.getMessage(),"解析失败")
+    
+@analysisRouter.get('/analysisDataDiffTableAPI')
+def analysisDataDiffTableAPI(path,dataType):
+    start_time = datetime.now()
+    res = analysisDataDiffTable(path,dataType)
     end_time = datetime.now()
     if(res == ResponseStatus.SUCCESS):
         return create_response(res.getCode(),res.getMessage(),"解析完成，花费时间："+str(end_time-start_time))

@@ -24,4 +24,11 @@ def getDb():
     SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
     session = SessionLocal()
     return session
+
+def getDbEngine():
+    # SQLAlchemy 数据库连接字符串
+    SQLALCHEMY_DATABASE_URL = f"mysql+mysqlconnector://{DBConfig.USER}:{DBConfig.PWD}@{DBConfig.HOST}:{DBConfig.PORT}/{DBConfig.DATABASE}"
+    # 创建数据库引擎
+    engine = create_engine(SQLALCHEMY_DATABASE_URL)
+    return engine
     

@@ -19,3 +19,7 @@ def searchByImagePathAPI(dataType:int,imagePathRouter):
     res = searchByImagePath(dataType,imagePathRouter)
     end_time = datetime.now()
     return res
+
+@searchRouter.get('/searchAllFromDataPackage')
+def searchAllFromDataPackage(dataPackageName):
+    return 

@@ -2,12 +2,10 @@ import os
 from models.db.vehicleEnd3DInspectionDBModel import VehicleEnd3DInspectionDBModel
 from models.db.dataPackageModel import DataPackageModel
 from core.db.connection import getDb
-import json
 import utils.exception as Exception
 from utils.response import responseEnum
-import hashlib
-from datetime import datetime
 from utils.serverConfig import ServerConfig
+from utils.analysisUtil import getJSON,calculateSha256Hash,convertMicrosecondsToDatetime
 
 #单线程添加example文件需要8s左右
 #TODO 多线程
@@ -67,28 +65,3 @@ def analysisEach(path,data):
     except Exception:
         session.rollback()
         return responseEnum.ResponseStatus.ANALYSISERROR
-
-def getJSON(path):
-    try:
-        with open(path,'r') as f:
-            data = json.load(f)
-            return data
-    except Exception:
-        return responseEnum.ResponseStatus.ANALYSISERROR
-
-#计算Hash值
-def calculateSha256Hash(input_string: str) -> str:
-    # 创建一个 sha256 哈希对象
-    sha256_hash = hashlib.sha256()
-    # 将输入字符串编码为字节并更新哈希对象
-    sha256_hash.update(input_string.encode('utf-8'))
-    # 返回十六进制的哈希值
-    return sha256_hash.hexdigest()
-
-#转换时间为timestamp
-def convertMicrosecondsToDatetime(microsecondsTimestamp: int) -> datetime:
-    # 将微秒时间戳转换为秒时间戳
-    secondsTimestamp = microsecondsTimestamp / 1_000_000
-    # 创建 datetime 对象
-    dtObject = datetime.fromtimestamp(secondsTimestamp)
-    return dtObject

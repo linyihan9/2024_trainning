@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c9ae46f3-8680-493f-a37d-df250256fefc" name="默认更改列表" comment="">
+      <change beforePath="$PROJECT_DIR$/1班-林逸航-学习笔记/Numpy.MD" beforeDir="false" afterPath="$PROJECT_DIR$/1班-林逸航-学习笔记/Numpy.MD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HomeWork/app/api/analysisApi.py" beforeDir="false" afterPath="$PROJECT_DIR$/HomeWork/app/api/analysisApi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HomeWork/app/core/analysis/analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/HomeWork/app/core/analysis/analysis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HomeWork/app/core/analysis/vehicleEnd3DInspectionAnalysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/HomeWork/app/core/analysis/vehicleEnd3DInspectionAnalysis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HomeWork/app/core/db/connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/HomeWork/app/core/db/connection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week3/myRedis.py" beforeDir="false" afterPath="$PROJECT_DIR$/Week3/myRedis.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2iAv8x7KqYdSSnnDFkXiLgDwGcO" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/HomeWork/app" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c9ae46f3-8680-493f-a37d-df250256fefc" name="默认更改列表" comment="" />
+      <created>1718946048119</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1718946048119</updated>
+      <workItem from="1718946061675" duration="18000" />
+    </task>
+    <servers />
+  </component>
+</project>
