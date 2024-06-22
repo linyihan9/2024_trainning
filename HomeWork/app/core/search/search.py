@@ -49,7 +49,7 @@ def searchTypeRangeTime(dataType,startTime,endTime):
             # 等待所有任务执行完毕
             as_completed(futures)
         #3.做整合
-        return 
+        return reses
     except:
         return create_response(ResponseStatus.DATABASEERROR.getCode(),ResponseStatus.DATABASEERROR.getMessage(),"")
 
