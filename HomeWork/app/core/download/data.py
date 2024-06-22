@@ -18,7 +18,6 @@ def multiThreadDownloadZip(downloadDataModel:DownloadDataModel):
         res = requests.get(fullUrl,stream=True)
         filesize = int(res.headers['Content-Length'])
         divisional_ranges = calDivisionalRange(filesize)
-        print(divisional_ranges)
         path = downloadDataModel.path+downloadDataModel.name
         # 先创建空文件
         with open(path, "wb"):

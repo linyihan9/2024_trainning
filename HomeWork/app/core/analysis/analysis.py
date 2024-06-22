@@ -26,7 +26,6 @@ def analysisDataInfo(path,dataType):
     # return responseEnum.ResponseStatus.SUCCESS
 
 
-#TODO 查询
 def analysisDataDiffTable(path,dataType):
     try:
         session = getDb()
