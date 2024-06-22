@@ -8,6 +8,7 @@ from core.db.connection import getDb,getDbEngine
 from utils.analysisUtil import getJSON,calculateSha256Hash,inferTypeBySuf
 from sqlalchemy import Column,Table,MetaData,Integer,String
 from sqlalchemy.ext.declarative import declarative_base
+from utils.serverConfig import ServerConfig
 
 Base = declarative_base()
 
@@ -25,9 +26,7 @@ def analysisDataInfo(path,dataType):
     # return responseEnum.ResponseStatus.SUCCESS
 
 
-#TODO 改html
 #TODO 查询
-#TODO json要保存写的内容，而不是路径
 def analysisDataDiffTable(path,dataType):
     try:
         session = getDb()
@@ -47,14 +46,15 @@ def analysisDataDiffTable(path,dataType):
         return responseEnum.ResponseStatus.ANALYSISERROR
     engine = getDbEngine()
     session = getDb()
-    table = createTable(os.path.dirname(path),data,dataPackageName,engine)
+    table,addColumn = createTable(os.path.dirname(path),data,dataPackageName,engine,dataPackageName)
     dataType = changeDataType(dataType)
-    return insertData(dataPackageName,data,session,table,dataType)
+    return insertData(dataPackageName,data,session,table,dataType,os.path.dirname(path),addColumn)
 
 #读取json，构建table，创建
-def createTable(path,data,tableName,engine):
+def createTable(path,data,tableName,engine,dataPackageName):
     columns = []
-    addColumns = {}
+    addColumnsDict = {}
+    addColumn = []
     #读取json
     for item in data:
         for key in item:
@@ -63,14 +63,15 @@ def createTable(path,data,tableName,engine):
             column = Column(key,type)
             columns.append(column)
             if value == 'pcd':
-                addColumns[key+'_size'] = Integer
+                addColumnsDict[key+'_size'] = Integer
+                addColumn.append(key+'_size')
         break
     #添加主键列
     appendPrimaryKeyColumn(columns)
     #添加额外列
-    appendOtherColumn(addColumns,data,path,columns)
+    appendOtherColumn(addColumnsDict,data,path,columns)
     table = createTableDetail(tableName,columns,engine)
-    return table
+    return table,addColumn
 
 def createTableDetail(tableName,columns,engine):
     metadata = MetaData()
@@ -111,13 +112,23 @@ def changeDataType(dataType):
         return responseEnum.ResponseStatus.ANALYSISTYPEERROR
 
 #插入数据
-def insertData(dataPackageName,data,session,table,dataType):
+def insertData(dataPackageName,data,session,table,dataType,path,addColumn):
+    htmlPrefix = ServerConfig.HOST+':'+ServerConfig.TOMCATPORT+'/'+ dataPackageName+'/'
     try:
         session.execute(
             f"INSERT INTO data_package (data_package_name, data_package_hash, data_type) VALUES ('{dataPackageName}', '{calculateSha256Hash(dataPackageName)}', '{dataType}');")
         #向数据表添加数据
         for record in data:
-            # 使用 table.insert().values(**record) 创建插入语句对象
+            for key in record:
+                if key in addColumn:
+                    continue
+                value = record[f'{key}'].split('.')[-1]
+                if value == 'jpg':
+                    #修改为html
+                    record[f'{key}'] = htmlPrefix + record[f'{key}']
+                elif value == 'json':
+                    #读取json，并保存
+                    record[f'{key}'] = getJSON(path+'//'+record[f'{key}'])
             insert_stmt = table.insert().values(**record)
             # 执行插入操作
             session.execute(insert_stmt)

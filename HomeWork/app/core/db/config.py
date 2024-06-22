@@ -6,3 +6,5 @@ class DBConfig:
     USER = "root"
     PWD = "123456"
     DATABASE = "data_clean"
+
+    MAINTABLE = "data_package"
